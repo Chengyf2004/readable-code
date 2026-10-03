@@ -2,6 +2,8 @@
 
 [中文](README.md) · English
 
+[![skills.sh](https://skills.sh/b/Chengyf2004/readable-code)](https://skills.sh/Chengyf2004/readable-code)
+
 Readable Code is a pair of instruction-only skills for code that people can read, take over, and maintain. The implementation guidance starts with Python and research scripts; the review rubric also covers modules and repositories.
 
 ## Two skills

@@ -1,6 +1,8 @@
 # Readable Code
 
-[skills.sh](https://skills.sh/Chengyf2004/readable-code) · [English](README.en.md)
+简体中文 | [English](README.en.md)
+
+[![skills.sh](https://skills.sh/b/Chengyf2004/readable-code)](https://skills.sh/Chengyf2004/readable-code)
 
 ## 为什么创建这套 skills
 
