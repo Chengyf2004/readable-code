@@ -13,6 +13,14 @@ The skills can be installed separately. Their instructions and examples are writ
 
 ## Use
 
+Install both skills with the skills.sh CLI:
+
+```bash
+npx skills add Chengyf2004/readable-code
+```
+
+To install one skill, add `--skill readable-code-generate` or `--skill readable-code-review`.
+
 Place the selected skill directories under your project's `.agents/skills/`, or install them through your coding agent's skill installer. See the [official Codex skill documentation](https://developers.openai.com/codex/skills).
 
 Implementation:

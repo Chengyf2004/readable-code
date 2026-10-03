@@ -1,6 +1,6 @@
 # Readable Code
 
-[在线介绍](https://readable-code.vercel.app) · [English](README.en.md)
+[skills.sh](https://skills.sh/Chengyf2004/readable-code) · [English](README.en.md)
 
 ## 为什么创建这套 skills
 
@@ -78,7 +78,20 @@ Readable Code 包含两个可以分别安装的 skills：
 
 ### 安装
 
-两个 skills 可以分别安装。在 Codex 中，可以让内置安装器安装对应目录：
+使用 skills.sh 的安装工具，可以一次安装两个 skills：
+
+```bash
+npx skills add Chengyf2004/readable-code
+```
+
+也可以分别安装：
+
+```bash
+npx skills add Chengyf2004/readable-code --skill readable-code-generate
+npx skills add Chengyf2004/readable-code --skill readable-code-review
+```
+
+在 Codex 中，也可以让内置安装器安装对应目录：
 
 ```text
 $skill-installer 请安装 https://github.com/Chengyf2004/readable-code/tree/main/skills/readable-code-generate
