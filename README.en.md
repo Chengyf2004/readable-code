@@ -1,74 +1,74 @@
-# Readable Research Code
+# Readable Code
 
-English · [中文](README.md)
+[中文](README.md) · English
 
-A Codex skill for readable research code, especially Python used by an individual researcher. Keep the workflow, data transformations, and computational assumptions visible while avoiding abstractions and safeguards that add little practical value.
+Readable Code is a pair of instruction-only skills for code that people can read, take over, and maintain. The implementation guidance starts with Python and research scripts; the review rubric also covers modules and repositories.
 
-Skill name: `readable-research-code`. The skill instructions and Python examples are written in Chinese.
+## Two skills
 
-## What it does
+- **`readable-code-generate`** guides implementation and modification. Its discovery description requires reading the skill before writing or changing code. Implicit invocation is enabled.
+- **`readable-code-review`** reviews completed work using eight dimensions, source evidence, reasonable exceptions, and 0–3 grades. Implicit invocation is disabled; invoke it explicitly.
 
-- **Keep the main workflow visible.** Place related operations and state nearby; prefer explicit conditions, loops, and meaningful intermediate variables.
-- **Evaluate safeguards in context.** Consider concrete risks, existing capabilities, readability, and the cost of future use and maintenance before adding checks, exception handling, or hashes.
-- **Use meaningful whitespace.** Keep simple statements compact and separate distinct logical steps with blank lines.
-- **Respect the task boundary.** Change only the relevant code and preserve necessary computation, failure behavior, and resource management.
-
-Functions, classes, loops, exception handling, and validation remain appropriate when they provide real value. The skill does not judge code by function counts or line counts, or accumulate a special prohibition for every individual incident.
-
-## Install in Codex
-
-### With the built-in skill-installer
-
-Send this in Codex:
-
-```text
-$skill-installer Install https://github.com/Chengyf2004/readable-research-code/tree/main/skills/readable-research-code
-```
-
-Replace `main` with `v0.1.0` in the URL to pin the first release.
-
-### With the skills CLI
-
-If Node.js is available, use the [skills CLI](https://github.com/vercel-labs/skills) to install for Codex at user scope:
-
-```bash
-npx skills add Chengyf2004/readable-research-code --skill readable-research-code --agent codex --global
-```
-
-Inspect the available skill first:
-
-```bash
-npx skills add Chengyf2004/readable-research-code --list
-```
+The skills can be installed separately. Their instructions and examples are written in Chinese. No scoring API or runtime dependency is required by the skill package.
 
 ## Use
 
-The description asks Codex to read the skill when writing or modifying code, especially research Python. `agents/openai.yaml` explicitly allows implicit invocation, so manual invocation is not required for every request. Selection still depends on the task and the model; activation on every coding request is not guaranteed.
+Place the selected skill directories under your project's `.agents/skills/`, or install them through your coding agent's skill installer. See the [official Codex skill documentation](https://developers.openai.com/codex/skills).
 
-To invoke it explicitly:
-
-```text
-$readable-research-code Implement this Python change with a visible workflow and blank lines between logical steps.
-```
-
-The skill does not change your global `AGENTS.md`, replace project formatter settings, or install runtime dependencies.
-
-## Layout
+Implementation:
 
 ```text
-skills/readable-research-code/
-├── SKILL.md
-├── LICENSE
-├── agents/openai.yaml
-└── references/python-examples.md
+Use $readable-code-generate for this implementation. Keep the normal workflow,
+state, and responsibilities clear. Change only the requested scope.
 ```
 
-[SKILL.md](skills/readable-research-code/SKILL.md) contains the guidance and final self-check. The [Python examples](skills/readable-research-code/references/python-examples.md) illustrate whitespace, branches, configuration layout, abstraction, and safeguards.
+Stage review:
 
-## Validation scope
+```text
+Use $readable-code-review to review the code in src/.
+Give a grade and source evidence for each dimension, explain reader costs
+and reasonable exceptions, and propose focused improvements. Review only.
+```
 
-The initial version was checked for valid skill metadata, example syntax, and visibility in Codex. Two small behavioral tasks exercised grouped means and session recovery through a local SDK test double. The latter preserved an unrelated integrity check without adding new recovery gates. These checks do not establish effectiveness across all models and tasks.
+After reviewing the findings, request the changes you accept and recheck the affected relationships. Implementation preserves existing behavior, interfaces, failure policies, and resource management. The readability review does not evaluate functional correctness or execute candidate code.
+
+## Eight review dimensions
+
+| ID | Dimension |
+|---|---|
+| D1 | Naming and meaning |
+| D2 | Normal workflows and control flow |
+| D3 | Data representation and state |
+| D4 | Abstraction and responsibilities |
+| D5 | Shared knowledge and discoverable change locations |
+| D6 | Directness and justification of mechanisms |
+| D7 | Information supplied by comments and documentation |
+| D8 | Local expressions, grouping, and reading order |
+
+Grades: 3 means no substantive avoidable readability obstacle was found; 2 indicates local burden; 1 indicates substantial tracking of important relationships; 0 indicates severely obscured core meaning. Inapplicable dimensions and missing essential context receive `null`. Grades are reported separately without a composite score.
+
+The [rubric](skills/readable-code-review/references/eight-dimensions.md) adapts principles from Ousterhout, Fowler, Martin, Thomas and Hunt, Beck, Parnas, author essays, Google engineering practices, and Python guidance. The dimensions and grades are this project's design; the books do not supply this scale. [Sources](skills/readable-code-review/references/sources.md)
+
+## Files
+
+```text
+skills/
+  readable-code-generate/
+    SKILL.md
+    LICENSE
+    agents/openai.yaml
+    references/python-examples.md
+  readable-code-review/
+    SKILL.md
+    LICENSE
+    agents/openai.yaml
+    references/eight-dimensions.md
+    references/eight-dimensions.json
+    references/sources.md
+```
+
+The implementation guidance covers focused safeguards: check existing SDK capabilities, distinguish recording from detecting and blocking, justify hashes and retries, preserve necessary failure policies, and use whitespace to show logical phases.
 
 ## License
 
-[MIT](LICENSE). The installable skill directory includes the license text as well.
+[MIT](LICENSE). Each independently installable skill includes the license.

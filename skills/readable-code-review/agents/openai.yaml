@@ -1,0 +1,6 @@
+interface:
+  display_name: "Readable Code Review"
+  short_description: "开发阶段结束后按八维检查源码关系、阅读负担与合理例外，给分和建议"
+  default_prompt: "使用 $readable-code-review 对本阶段代码做八维可读性评审，给出分数、源码证据和整理建议。"
+policy:
+  allow_implicit_invocation: false
