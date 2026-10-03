@@ -1,0 +1,10 @@
+.git/
+.vercel/
+skills/
+README.md
+README.en.md
+LICENSE
+.gitignore
+.gitattributes
+
+.env*

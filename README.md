@@ -79,11 +79,11 @@ Readable Code 包含两个可以分别安装的 skills：
 两个 skills 可以分别安装。在 Codex 中，可以让内置安装器安装对应目录：
 
 ```text
-$skill-installer 请安装 https://github.com/Chengyf2004/readable-research-code/tree/main/skills/readable-code-generate
+$skill-installer 请安装 https://github.com/Chengyf2004/readable-code/tree/main/skills/readable-code-generate
 ```
 
 ```text
-$skill-installer 请安装 https://github.com/Chengyf2004/readable-research-code/tree/main/skills/readable-code-review
+$skill-installer 请安装 https://github.com/Chengyf2004/readable-code/tree/main/skills/readable-code-review
 ```
 
 也可以把需要使用的目录复制到项目的 `.agents/skills/` 下，保留 `SKILL.md`、`agents/` 和 `references/` 的相对位置。
