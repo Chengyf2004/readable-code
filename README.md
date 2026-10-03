@@ -1,5 +1,7 @@
 # Readable Code
 
+[在线介绍](https://readable-code.vercel.app) · [English](README.en.md)
+
 ## 为什么创建这套 skills
 
 如今 AI 的能力越来越强，很多程序员已经很少手写代码了。我本人也一直在使用 OpenAI 家的模型，但是长期使用下来，还是发现现在的模型远没有达到把代码当成“黑箱”，只提需求就能让项目稳定运转的程度。
